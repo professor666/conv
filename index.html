@@ -1,0 +1,437 @@
+<title>Конвертер</title>
+<meta name="keywords" content="конвертер величин, конвертер веса, масса, вес, online" />
+<meta name="description" content="Интерактивный конвертер веса, массы, перевод величин, килограммы в граммы" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="Content-language" content="RU" />
+
+</head>
+<body>
+ <tr>
+    
+  
+   <form name="form_conv" onSubmit="return false;">
+	<h1>Конвертер массы, веса</h1>
+	<br />
+	<table>
+		<tr>
+			<td class="fname">Тонна (т)</td>
+			<td><input type="text" name="t" value="" onkeyup="change('t', this.value);" onmouseup="change('t', this.value);" onchange="change('t', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Центнер (ц)</td>
+			<td><input type="text" name="cnt" value="" onkeyup="change('cnt', this.value);" onmouseup="change('cnt', this.value);" onchange="change('cnt', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Килограмм (кг)</td>
+			<td><input type="text" name="kg" value="" onkeyup="change('kg', this.value);" onmouseup="change('kg', this.value);" onchange="change('kg', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Грамм (г)</td>
+			<td><input type="text" name="g" value="" onkeyup="change('g', this.value);" onmouseup="change('g', this.value);" onchange="change('g', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Миллиграмм (мг)</td>
+			<td><input type="text" name="mg" value="" onkeyup="change('mg', this.value);" onmouseup="change('mg', this.value);" onchange="change('mg', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Микрограмм (мкг)</td>
+			<td><input type="text" name="mkg" value="" onkeyup="change('mkg', this.value);" onmouseup="change('mkg', this.value);" onchange="change('mkg', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Единица атомной массы (amu)</td>
+			<td><input type="text" name="amu" value="" onkeyup="change('amu', this.value);" onmouseup="change('amu', this.value);" onchange="change('amu', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Фунт (lb)</td>
+			<td><input type="text" name="lb" value="" onkeyup="change('lb', this.value);" onmouseup="change('lb', this.value);" onchange="change('lb', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Унция</td>
+			<td><input type="text" name="un" value="" onkeyup="change('un', this.value);" onmouseup="change('un', this.value);" onchange="change('un', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Драхма (dr)</td>
+			<td><input type="text" name="dr" value="" onkeyup="change('dr', this.value);" onmouseup="change('dr', this.value);" onchange="change('dr', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname">Гран (gr)</td>
+			<td><input type="text" name="gr" value="" onkeyup="change('gr', this.value);" onmouseup="change('gr', this.value);" onchange="change('gr', this.value);" /></td>
+		</tr>
+		<tr>
+			<td class="fname"></td>
+			<td><input type="submit" value="Посчитать" onclick="return convert();" /></td>
+		</tr>
+	</table>
+</form>
+
+
+
+</tr>
+
+<style>
+<!--
+.hawaii_rotator {margin:0px; padding:3px; border:1px #000 dashed; background-color:#FBF6D8; font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial; color: #666666; text-align:center;}
+.hawaii_rotator h2 {margin:0 0 2px 0; padding:0px; font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial; color: #666666;}
+.hawaii_rotator a {font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial, Helvetica; color: #666666; text-decoration:none;}
+.hawaii_rotator a:hover {color: #6CAE5C; text-decoration:none;}
+.hawaii_rotator .button {font-family:Arial, Tahoma; font-size:11px; margin:3px 0 0 0; padding:2px 3px;}
+.hawaii_rotator .price {margin:3px 0; color:#8B0000;}
+--></style>
+
+</td>
+</tr>
+
+</td></tr></table>
+
+<script language="JavaScript">
+<!--
+var defParam = '';
+var defValue = '';
+var dnums = 8;
+var zpt = 0;
+//function change(param, val)
+
+function change(par, val)
+{
+	defParam = par;
+	defValue = val;
+}
+
+
+function convert()
+{
+	//alert(defParam+'-'+val);
+	var val = defValue;
+	var param = defParam;
+	
+	if(val == undefined)
+	{
+		document.form_conv.t.value = '';
+		document.form_conv.cnt.value = '';
+		document.form_conv.kg.value = '';
+		document.form_conv.g.value = '';
+		document.form_conv.mg.value = '';
+		document.form_conv.mkg.value = '';
+		document.form_conv.amu.value = '';
+		document.form_conv.lb.value = '';
+		document.form_conv.un.value = '';
+		document.form_conv.dr.value = '';
+		document.form_conv.gr.value = '';
+		return false;
+	}
+	
+	if(val.indexOf(',') != -1)
+	{
+	  zpt = 1;
+	  val = val.replace(',', '.');
+	}
+	  
+	if(isNaN(val))
+	{
+		document.form_conv.t.value = '';
+		document.form_conv.cnt.value = '';
+		document.form_conv.kg.value = '';
+		document.form_conv.g.value = '';
+		document.form_conv.mg.value = '';
+		document.form_conv.mkg.value = '';
+		document.form_conv.amu.value = '';
+		document.form_conv.lb.value = '';
+		document.form_conv.un.value = '';
+		document.form_conv.dr.value = '';
+		document.form_conv.gr.value = '';
+		return false;
+	}
+  
+  if(val == '')
+	{
+		document.form_conv.t.value = '';
+		document.form_conv.cnt.value = '';
+		document.form_conv.kg.value = '';
+		document.form_conv.g.value = '';
+		document.form_conv.mg.value = '';
+		document.form_conv.mkg.value = '';
+		document.form_conv.amu.value = '';
+		document.form_conv.lb.value = '';
+		document.form_conv.un.value = '';
+		document.form_conv.dr.value = '';
+		document.form_conv.gr.value = '';
+		return false;
+	}
+  
+	switch (param)
+	{
+		case 't':
+		document.form_conv.cnt.value = fixx(val*10);
+		document.form_conv.kg.value = fixx(val*1000);
+		document.form_conv.g.value = fixx(val*1000000);
+		document.form_conv.mg.value = fixx(val*1000000000);
+		document.form_conv.mkg.value = fixx(val*1000000000000);
+		document.form_conv.amu.value = fixx(val*6.023e+29);
+		document.form_conv.lb.value = fixx(val*2204.6226);
+		document.form_conv.un.value = fixx(val*35273.96);
+		document.form_conv.dr.value = fixx(val*564383.4);
+		document.form_conv.gr.value = fixx(val*15432360);
+		break;
+		
+		case 'cnt':
+		document.form_conv.t.value = fixx(val*0.1);
+		document.form_conv.kg.value = fixx(val*100);
+		document.form_conv.g.value = fixx(val*100000);
+		document.form_conv.mg.value = fixx(val*100000000);
+		document.form_conv.mkg.value = fixx(val*100000000000);
+		document.form_conv.amu.value = fixx(val*6.0225e+28);
+		document.form_conv.lb.value = fixx(val*220.4623);
+		document.form_conv.un.value = fixx(val*3527.396);
+		document.form_conv.dr.value = fixx(val*56438.34);
+		document.form_conv.gr.value = fixx(val*1543236);
+		break;
+		
+		case 'kg':
+		document.form_conv.t.value = fixx(val*0.001);
+		document.form_conv.cnt.value = fixx(val*0.01);
+		document.form_conv.g.value = fixx(val*1000);
+		document.form_conv.mg.value = fixx(val*1000000);
+		document.form_conv.mkg.value = fixx(val*1000000000);
+		document.form_conv.amu.value = fixx(val*6.0225e+26);
+		document.form_conv.lb.value = fixx(val*2.204623);
+		document.form_conv.un.value = fixx(val*35.27396);
+		document.form_conv.dr.value = fixx(val*564.3834);
+		document.form_conv.gr.value = fixx(val*15432.36);
+		break;
+		
+		case 'g':
+		document.form_conv.t.value = fixx(val*0.000001);
+		document.form_conv.cnt.value = fixx(val*0.00001);
+		document.form_conv.kg.value = fixx(val*0.001);
+		document.form_conv.mg.value = fixx(val*1000);
+		document.form_conv.mkg.value = fixx(val*1000000);
+		document.form_conv.amu.value = fixx(val*6.0225e+23);
+		document.form_conv.lb.value = fixx(val*0.002204623);
+		document.form_conv.un.value = fixx(val*0.03527396);
+		document.form_conv.dr.value = fixx(val*0.5643834);
+		document.form_conv.gr.value = fixx(val*15.43236);
+		break;
+		
+		case 'mg':
+		document.form_conv.t.value = fixx(val*0.000000001);
+		document.form_conv.cnt.value = fixx(val*0.00000001);
+		document.form_conv.kg.value = fixx(val*0.000001);
+		document.form_conv.g.value = fixx(val*0.001);
+		document.form_conv.mkg.value = fixx(val*1000);
+		document.form_conv.amu.value = fixx(val*6.0225e+20);
+		document.form_conv.lb.value = fixx(val*0.000002205);
+		document.form_conv.un.value = fixx(val*0.00003527);
+		document.form_conv.dr.value = fixx(val*0.0005644);
+		document.form_conv.gr.value = fixx(val*0.01543);
+		break;
+		
+		case 'mkg':
+		document.form_conv.t.value = fixx(val*0.000000000001);
+		document.form_conv.cnt.value = fixx(val*0.00000000001);
+		document.form_conv.kg.value = fixx(val*0.000000001);
+		document.form_conv.g.value = fixx(val*0.000001);
+		document.form_conv.mg.value = fixx(val*0.001);
+		document.form_conv.amu.value = fixx(val*6.0225e+17);
+		document.form_conv.lb.value = fixx(val*2.205e-9);
+		document.form_conv.un.value = fixx(val*3.527e-8);
+		document.form_conv.dr.value = fixx(val*5.644e-7);
+		document.form_conv.gr.value = fixx(val*0.00001543);
+		break;
+		
+		case 'amu':
+		document.form_conv.t.value = fixx(val*1.66e-30);
+		document.form_conv.cnt.value = fixx(val*1.66e-29);
+		document.form_conv.kg.value = fixx(val*1.66e-27);
+		document.form_conv.g.value = fixx(val*1.66e-24);
+		document.form_conv.mg.value = fixx(val*1.66e-21);
+		document.form_conv.mkg.value = fixx(val*1.66e-18);
+		document.form_conv.lb.value = fixx(val*3.661e-27);
+		document.form_conv.un.value = fixx(val*5.857e-26);
+		document.form_conv.dr.value = fixx(val*9.371e-25);
+		document.form_conv.gr.value = fixx(val*2.562e-23);
+		break;
+		
+		case 'lb':
+		document.form_conv.t.value = fixx(val*0.0004536);
+		document.form_conv.cnt.value = fixx(val*0.004536);
+		document.form_conv.kg.value = fixx(val*0.4536);
+		document.form_conv.g.value = fixx(val*453.6);
+		document.form_conv.mg.value = fixx(val*453600);
+		document.form_conv.mkg.value = fixx(val*453600000);
+		document.form_conv.amu.value = fixx(val*2.732e+26);
+		document.form_conv.un.value = fixx(val*16);
+		document.form_conv.dr.value = fixx(val*256);
+		document.form_conv.gr.value = fixx(val*7000);
+		break;
+		
+		case 'un':
+		document.form_conv.t.value = fixx(val*0.00002835);
+		document.form_conv.cnt.value = fixx(val*0.0002835);
+		document.form_conv.kg.value = fixx(val*0.02835);
+		document.form_conv.g.value = fixx(val*28.35);
+		document.form_conv.mg.value = fixx(val*28350);
+		document.form_conv.mkg.value = fixx(val*28350000);
+		document.form_conv.amu.value = fixx(val*1.707e+25);
+		document.form_conv.lb.value = fixx(val*0.0625);
+		document.form_conv.dr.value = fixx(val*16);
+		document.form_conv.gr.value = fixx(val*437.5);
+		break;
+		
+		case 'dr':
+		document.form_conv.t.value = fixx(val*0.000001772);
+		document.form_conv.cnt.value = fixx(val*0.00001772);
+		document.form_conv.kg.value = fixx(val*0.001772);
+		document.form_conv.g.value = fixx(val*1.772);
+		document.form_conv.mg.value = fixx(val*1772);
+		document.form_conv.mkg.value = fixx(val*1772000);
+		document.form_conv.amu.value = fixx(val*1.067e+24);
+		document.form_conv.lb.value = fixx(val*0.003906);
+		document.form_conv.un.value = fixx(val*0.0625);
+		document.form_conv.gr.value = fixx(val*27.34);
+		break;
+		
+		case 'gr':
+		document.form_conv.t.value = fixx(val*6.48e-8);
+		document.form_conv.cnt.value = fixx(val*6.48e-7);
+		document.form_conv.kg.value = fixx(val*0.0000648);
+		document.form_conv.g.value = fixx(val*0.0648);
+		document.form_conv.mg.value = fixx(val*64.8);
+		document.form_conv.mkg.value = fixx(val*64800);
+		document.form_conv.amu.value = fixx(val*3.903e+22);
+		document.form_conv.lb.value = fixx(val*0.0001429);
+		document.form_conv.un.value = fixx(val*0.002286);
+		document.form_conv.dr.value = fixx(val*0.03657);
+		break;
+		
+		default:
+		document.form_conv.t.value = '';
+		document.form_conv.cnt.value = '';
+		document.form_conv.kg.value = '';
+		document.form_conv.g.value = '';
+		document.form_conv.mg.value = '';
+		document.form_conv.mkg.value = '';
+		document.form_conv.amu.value = '';
+		document.form_conv.lb.value = '';
+		document.form_conv.un.value = '';
+		document.form_conv.dr.value = '';
+		document.form_conv.gr.value = '';
+		break;
+	}
+	
+	zpt = 0;
+	
+	return false;
+}
+
+
+if(!Number.prototype.toFixed){
+  Number.prototype.toFixed=function(e){
+    var y=Math.round(this*Math.pow(10,e))/Math.pow(10,e);
+    var i=e-y.toString().length+y.toString().indexOf('.')+1;
+    if(e>0){
+      if(y.toString().indexOf('.')<0)return y+'.'+Math.pow(10,e).toString().substring(1);
+      else if(i>0)return y+Math.pow(10,i).toString().substring(1);
+      else return y;
+    }
+    else return y;
+  }
+}
+
+var isGroup = 0;
+function fixx ( value ) 
+{
+	var precision = 4;
+
+	var result;
+	value = String(value);
+	var shift;
+	var expPart = '';
+	var signPart = '';
+	
+	if( !isFinite(value) )
+		return value;
+	
+	if ( value.indexOf( "e" ) != -1 ) 
+	{
+		expPart = value.substring( value.indexOf( "e" ), value.length );
+		value = value.substring( 0, value.indexOf( "e" ) );
+	}
+	else 
+		{
+        if  ( value.indexOf( "E" ) != -1 ) {
+        	expPart = value.substring( value.indexOf( "E" ), value.length );
+        	value = value.substring( 0, value.indexOf( "e" ) );
+        }
+        if ( value.substring( 0, 1 ) == '-' ) {
+        	signPart = '-';
+        	value = value.substring( 1, value.length);
+        }
+	}
+	if ( parseFloat(value) >= 1.0 ) {
+		var point = value.indexOf( "." );
+		if ( point == -1 ) {
+			point = value.length;
+		}
+		shift = point-precision;
+	}
+	else {
+		var notNull=String(value).lastIndexOf ( '.' ) + 1;
+		if ( notNull == 1 ) notNull += 1;
+		while ( String(value).charAt ( notNull ) == '0' ) {
+			notNull++;
+		}
+		notNull -= 2;
+
+		shift = -(precision+notNull);
+	}
+
+	result = Math.round(value/Math.pow(10, shift));
+	if ( shift >=0 ) {
+		for ( var i=1; i<=shift; i++ ) {
+			result += '0';
+		}
+	}
+	else {
+		result += '';
+		if ( result.length+shift>0 ) {
+			result = result.substring ( 0, result.length+shift ) + '.' + result.substring ( result.length+shift, result.length );
+		}
+		else {
+           	var result1 = '0.';
+           	for ( var i=-1; i>=result.length+shift; i-- ) {
+           		result1 += '0';
+           	}
+           	result = result1 + result;
+		}
+       	while ( result.charAt(result.length-1) == '0' ) {
+       		result = result.substring ( 0, result.length-1 );
+       	}
+       	if ( result.charAt(result.length-1) == '.' ) {
+       		result = result.substring ( 0, result.length-1 );
+       	}
+	}
+
+	result = signPart + result + expPart;
+
+	if(isGroup) 
+	{
+     var i = result.indexOf ( ".")>0 ? result.indexOf ( "." ) : result.length;
+      for ( var j=i-3; j>0; j-=3 ) 
+      {
+       if ( result[j-1] != "-" )
+         result = result.substring ( 0, j ) + " " + result.substring (j, result.length );
+      }
+  }
+  
+  if(zpt)
+	  result = result.replace('.', ',');
+  
+	return result;
+
+}
+
+//alert(Number(10.237511).toFixed(3));
+//alert(fixx(10.011001));
+//-->
+</script>
+</body>
