@@ -1,8 +1,9 @@
+<!DOCTYPE html>
+
+<head>
 <title>Конвертер</title>
-<meta name="keywords" content="конвертер величин, конвертер веса, масса, вес, online" />
-<meta name="description" content="Интерактивный конвертер веса, массы, перевод величин, килограммы в граммы" />
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="Content-language" content="RU" />
+
+
 
 </head>
 <body>
@@ -10,52 +11,52 @@
     
   
    <form name="form_conv" onSubmit="return false;">
-	<h1>Конвертер массы, веса</h1>
+	<h1>Конвертер</h1>
 	<br />
 	<table>
 		<tr>
 			<td class="fname">Тонна (т)</td>
-			<td><input type="text" name="t" value="" onkeyup="change('t', this.value);" onmouseup="change('t', this.value);" onchange="change('t', this.value);" /></td>
+			<td><input type="number" name="t" value="" onkeyup="change('t', this.value);" onmouseup="change('t', this.value);" onchange="change('t', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Центнер (ц)</td>
-			<td><input type="text" name="cnt" value="" onkeyup="change('cnt', this.value);" onmouseup="change('cnt', this.value);" onchange="change('cnt', this.value);" /></td>
+			<td><input type="number" name="cnt" value="" onkeyup="change('cnt', this.value);" onmouseup="change('cnt', this.value);" onchange="change('cnt', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Килограмм (кг)</td>
-			<td><input type="text" name="kg" value="" onkeyup="change('kg', this.value);" onmouseup="change('kg', this.value);" onchange="change('kg', this.value);" /></td>
+			<td><input type="number" name="kg" value="" onkeyup="change('kg', this.value);" onmouseup="change('kg', this.value);" onchange="change('kg', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Грамм (г)</td>
-			<td><input type="text" name="g" value="" onkeyup="change('g', this.value);" onmouseup="change('g', this.value);" onchange="change('g', this.value);" /></td>
+			<td><input type="number" name="g" value="" onkeyup="change('g', this.value);" onmouseup="change('g', this.value);" onchange="change('g', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Миллиграмм (мг)</td>
-			<td><input type="text" name="mg" value="" onkeyup="change('mg', this.value);" onmouseup="change('mg', this.value);" onchange="change('mg', this.value);" /></td>
+			<td><input type="number" name="mg" value="" onkeyup="change('mg', this.value);" onmouseup="change('mg', this.value);" onchange="change('mg', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Микрограмм (мкг)</td>
-			<td><input type="text" name="mkg" value="" onkeyup="change('mkg', this.value);" onmouseup="change('mkg', this.value);" onchange="change('mkg', this.value);" /></td>
+			<td><input type="number" name="mkg" value="" onkeyup="change('mkg', this.value);" onmouseup="change('mkg', this.value);" onchange="change('mkg', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Единица атомной массы (amu)</td>
-			<td><input type="text" name="amu" value="" onkeyup="change('amu', this.value);" onmouseup="change('amu', this.value);" onchange="change('amu', this.value);" /></td>
+			<td><input type="number" name="amu" value="" onkeyup="change('amu', this.value);" onmouseup="change('amu', this.value);" onchange="change('amu', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Фунт (lb)</td>
-			<td><input type="text" name="lb" value="" onkeyup="change('lb', this.value);" onmouseup="change('lb', this.value);" onchange="change('lb', this.value);" /></td>
+			<td><input type="number" name="lb" value="" onkeyup="change('lb', this.value);" onmouseup="change('lb', this.value);" onchange="change('lb', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Унция</td>
-			<td><input type="text" name="un" value="" onkeyup="change('un', this.value);" onmouseup="change('un', this.value);" onchange="change('un', this.value);" /></td>
+			<td><input type="number" name="un" value="" onkeyup="change('un', this.value);" onmouseup="change('un', this.value);" onchange="change('un', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Драхма (dr)</td>
-			<td><input type="text" name="dr" value="" onkeyup="change('dr', this.value);" onmouseup="change('dr', this.value);" onchange="change('dr', this.value);" /></td>
+			<td><input type="number" name="dr" value="" onkeyup="change('dr', this.value);" onmouseup="change('dr', this.value);" onchange="change('dr', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname">Гран (gr)</td>
-			<td><input type="text" name="gr" value="" onkeyup="change('gr', this.value);" onmouseup="change('gr', this.value);" onchange="change('gr', this.value);" /></td>
+			<td><input type="number" name="gr" value="" onkeyup="change('gr', this.value);" onmouseup="change('gr', this.value);" onchange="change('gr', this.value);" /></td>
 		</tr>
 		<tr>
 			<td class="fname"></td>
@@ -68,15 +69,7 @@
 
 </tr>
 
-<style>
-<!--
-.hawaii_rotator {margin:0px; padding:3px; border:1px #000 dashed; background-color:#FBF6D8; font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial; color: #666666; text-align:center;}
-.hawaii_rotator h2 {margin:0 0 2px 0; padding:0px; font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial; color: #666666;}
-.hawaii_rotator a {font-size: 12px; font-family: "Comic Sans MS", "Trebuchet MS", Arial, Helvetica; color: #666666; text-decoration:none;}
-.hawaii_rotator a:hover {color: #6CAE5C; text-decoration:none;}
-.hawaii_rotator .button {font-family:Arial, Tahoma; font-size:11px; margin:3px 0 0 0; padding:2px 3px;}
-.hawaii_rotator .price {margin:3px 0; color:#8B0000;}
---></style>
+
 
 </td>
 </tr>
@@ -435,3 +428,4 @@ function fixx ( value )
 //-->
 </script>
 </body>
+</html>
